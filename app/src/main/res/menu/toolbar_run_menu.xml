@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/miFilterTracking"
+        android:icon="@drawable/filter"
+        android:title="Filter List"
+        android:visible="true"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/sortByDate"
+                android:title="Date" />
+            <item
+                android:id="@+id/sortByRunningTime"
+                android:title="Running Time" />
+            <item
+                android:id="@+id/sortByDistance"
+                android:title="Distance" />
+            <item
+                android:id="@+id/sortByAvgSpeed"
+                android:title="Average Speed" />
+            <item
+                android:id="@+id/sortByCaloriesBurned"
+                android:title="Calories Burned" />
+        </menu>
+
+    </item>
+
+</menu>
