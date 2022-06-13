@@ -16,6 +16,13 @@
         <action
             android:id="@+id/action_runFragment_to_trackingFragment"
             app:destination="@id/trackingFragment" />
+        <action
+            android:id="@+id/action_runFragment_to_runDetailFragment"
+            app:destination="@id/runDetailFragment">
+            <argument
+                android:name="detail"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -41,4 +48,8 @@
             android:id="@+id/action_trackingFragment_to_runFragment"
             app:destination="@id/runFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/runDetailFragment"
+        android:name="com.ravisharma.runningtrack.ui.fragments.RunDetailFragment"
+        android:label="RunDetailFragment" />
 </navigation>

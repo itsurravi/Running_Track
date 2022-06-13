@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -79,7 +80,10 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
 
     private fun setupRecyclerView() = binding!!.rvRuns.apply {
         showProgressBar()
-        runAdapter = RunAdapter()
+        runAdapter = RunAdapter {
+            val bundle = bundleOf("detail" to it.toString())
+            findNavController().navigate(R.id.action_runFragment_to_runDetailFragment, bundle)
+        }
         adapter = runAdapter
         layoutManager = LinearLayoutManager(requireContext())
     }

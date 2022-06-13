@@ -1,5 +1,6 @@
 package com.ravisharma.runningtrack.ui.viewmodels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -75,5 +76,9 @@ class MainViewModel @Inject constructor(
 
     fun insertRun(run: Run) = viewModelScope.launch {
         mainRepository.insertRun(run)
+    }
+
+    fun getSingleRun(id: Int): LiveData<Run> {
+        return mainRepository.getSingleRun(id)
     }
 }

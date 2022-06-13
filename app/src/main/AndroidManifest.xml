@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity" android:launchMode="singleTask">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +26,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".services.TrackingService"
+        <service
+            android:name=".services.TrackingService"
             android:foregroundServiceType="location" />
 
         <meta-data

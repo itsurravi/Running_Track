@@ -37,4 +37,7 @@ interface RunDao {
 
     @Query("SELECT AVG(avgSpeedInKMH) FROM runningTable")
     fun getTotalAvgSpeed(): LiveData<Float>
+
+    @Query("SELECT * FROM runningTable WHERE id=:id")
+    fun getSingleRun(id: Int): LiveData<Run>
 }

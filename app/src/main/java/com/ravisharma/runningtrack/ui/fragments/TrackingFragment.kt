@@ -2,6 +2,7 @@ package com.ravisharma.runningtrack.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,6 +19,7 @@ import com.ravisharma.runningtrack.db.Run
 import com.ravisharma.runningtrack.other.Constants.ACTION_PAUSE_SERVICE
 import com.ravisharma.runningtrack.other.Constants.ACTION_START_OR_RESUME_SERVICE
 import com.ravisharma.runningtrack.other.Constants.ACTION_STOP_SERVICE
+import com.ravisharma.runningtrack.other.Constants.CANCEL_TRACKING_DIALOG_TAG
 import com.ravisharma.runningtrack.other.Constants.MAP_ZOOM
 import com.ravisharma.runningtrack.other.Constants.POLYLINE_COLOR
 import com.ravisharma.runningtrack.other.Constants.POLYLINE_WIDTH
@@ -30,8 +32,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
 import kotlin.math.round
-
-const val CANCEL_TRACKING_DIALOG_TAG = "CancelDialog"
 
 @AndroidEntryPoint
 class TrackingFragment : Fragment(R.layout.fragment_tracking) {
@@ -197,6 +197,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
                 round((distanceInMeters / 1000f) / (currentTimeMillis / 1000f / 60 / 60) * 10) / 10f
             val dateTimeStamp = Calendar.getInstance().timeInMillis
             val caloriesBurned = ((distanceInMeters / 1000f) * weight).toInt()
+            Log.e("Values", "$weight")
 
             val run = Run(
                 bmp,

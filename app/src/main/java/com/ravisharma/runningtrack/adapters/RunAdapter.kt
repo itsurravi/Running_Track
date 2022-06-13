@@ -14,7 +14,7 @@ import com.ravisharma.runningtrack.other.TrackingUtility
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RunAdapter : RecyclerView.Adapter<RunAdapter.RunViewHolder>() {
+class RunAdapter(val onItemClick : (position: Int) -> Unit) : RecyclerView.Adapter<RunAdapter.RunViewHolder>() {
 
     inner class RunViewHolder(val binding: ItemRunBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -60,6 +60,10 @@ class RunAdapter : RecyclerView.Adapter<RunAdapter.RunViewHolder>() {
 
             val caloriesBurned = "${run.caloriesBurned}kcal"
             tvCalories.text = caloriesBurned
+
+            materialCardView.setOnClickListener {
+                onItemClick(run.id!!)
+            }
         }
     }
 }

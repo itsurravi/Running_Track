@@ -28,4 +28,6 @@ class MainRepository @Inject constructor(
     fun getTotalCaloriesBurned() = runDao.getTotalCaloriesBurned()
 
     fun getTotalTimeInMillis() = runDao.getTotalTimeInMillis()
+
+    fun getSingleRun(id: Int) = runDao.getSingleRun(id)
 }
