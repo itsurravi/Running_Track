@@ -23,9 +23,9 @@
         android:contentDescription="@string/sort_list"
         android:src="@drawable/ic_sort_24"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/spFilter"
-        app:layout_constraintEnd_toStartOf="@+id/spFilter"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/spFilter"
+        app:layout_constraintEnd_toStartOf="@id/spFilter"
+        app:layout_constraintTop_toTopOf="@id/spFilter" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRuns"
