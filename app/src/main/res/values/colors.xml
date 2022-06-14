@@ -3,9 +3,9 @@
     <color name="colorPrimary">#7A8B94</color>
     <color name="colorPrimaryDark">#7A8B94</color>
     <color name="colorAccent">#3C4852</color>
-    <color name="colorBackground">#f7efed</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBackground">@color/colorWhite</color>
 
     <color name="toolbarColor">@color/colorPrimary</color>
     <color name="errorColor">#EB5757</color>
@@ -14,5 +14,6 @@
     <color name="lightTextPrimary">#3C4852</color>
     <color name="lightTextSecondary">#7A8B94</color>
     <color name="lightBaseFill">#3C4852</color>
+    <color name="statsChartBackground">#f7efed</color>
 
 </resources>

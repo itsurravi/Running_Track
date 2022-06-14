@@ -37,12 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         val name = sharedPreferences.getString(Constants.KEY_NAME, "")!!
         if (name.isNotBlank() || name.isNotEmpty()) {
-            binding.toolbar.title = "Let's go $name!"
+            binding.appTitle.text = "Let's go $name!"
         }
 
         navigateToTrackingFragmentIfNeeded(intent)
 
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
         binding.bottomNavigationView.setupWithNavController(navController)
         binding.bottomNavigationView.setOnNavigationItemReselectedListener {
             /* No Operation*/
@@ -72,20 +72,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (binding.appBarLayout.visibility == View.GONE) {
-            binding.appBarLayout.visibility = View.VISIBLE
+        if (binding.appTitle.visibility == View.GONE) {
+            binding.appTitle.visibility = View.VISIBLE
         }
     }
 
     fun showHideAppBarLayout(show: Boolean) {
         if (show) {
-            binding.appBarLayout.visibility = View.VISIBLE
+            binding.appTitle.visibility = View.VISIBLE
         } else {
-            binding.appBarLayout.visibility = View.GONE
+            binding.appTitle.visibility = View.GONE
         }
     }
 
     fun setToolbarTitle(title: String) {
-        binding.toolbar.title = title
+        binding.appTitle.text = title
     }
 }
