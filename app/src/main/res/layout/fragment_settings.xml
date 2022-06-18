@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Your Name"
+            android:hint="@string/name_hint"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Your Weight"
+            android:hint="@string/weight_hint"
             android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        android:text="Apply Changes"
+        android:text="@string/apply_changes"
         android:textColor="@color/colorPrimary"
         app:backgroundTint="@color/lightBaseFill"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -20,7 +19,7 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!\n\nPlease enter your name and weight."
+        android:text="@string/welcome_message"
         android:textAlignment="center"
         android:textColor="@color/lightTextPrimary"
         android:textSize="24sp"
@@ -45,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Your Name"
+            android:hint="@string/name_hint"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Your Weight"
+            android:hint="@string/weight_hint"
             android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
-        android:text="kg"
+        android:text="@string/kg"
         android:textColor="@color/lightTextSecondary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/tilWeight"
@@ -95,7 +94,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/colorPrimary"
-        app:tint="@color/colorPrimary" />
+        app:tint="@color/colorPrimary"
+        android:contentDescription="@string/float_content_desc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

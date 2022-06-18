@@ -56,7 +56,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             apply()
         }
 
-        val toolbarText = "Let's go $name!"
+        val toolbarText = "Hi, $name!"
 
         (requireActivity() as MainActivity).setToolbarTitle(toolbarText)
 

@@ -38,17 +38,17 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             position = XAxis.XAxisPosition.BOTTOM
             setDrawLabels(false)
             axisLineColor = Color.BLACK
-            textColor = Color.BLACK
+            textColor = resources.getColor(R.color.lightTextPrimary)
             setDrawGridLines(false)
         }
         binding.barChart.axisLeft.apply {
             axisLineColor = Color.BLACK
-            textColor = Color.BLACK
+            textColor = resources.getColor(R.color.lightTextPrimary)
             setDrawGridLines(false)
         }
         binding.barChart.axisRight.apply {
             axisLineColor = Color.BLACK
-            textColor = Color.BLACK
+            textColor = resources.getColor(R.color.lightTextPrimary)
             setDrawGridLines(false)
         }
 

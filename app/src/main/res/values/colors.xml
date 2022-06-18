@@ -6,16 +6,19 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBackground">@color/colorWhite</color>
+    <color name="colorGrey">#959497</color>
 
     <color name="toolbarColor">@color/colorPrimary</color>
     <color name="errorColor">#EB5757</color>
 
     <color name="divider">#E9EEF2</color>
-    <color name="lightTextPrimary">#323753</color>
-    <color name="lightTextSecondary">#CCC9CF</color>
-    <color name="lightBaseFill">#7cd1e7</color>
+    <color name="lightTextPrimary">@color/colorPrimary</color>
+    <color name="lightTextSecondary">#959497</color>
+    <color name="lightBaseFill">@color/colorAccent</color>
     <color name="statsChartBackground">#ECF3FC</color>
 
-    <color name="colorGrey">#D7D7D7</color>
-
+    <color name="timeColor">#E8E9FF</color>
+    <color name="distanceColor">#E8EDF4</color>
+    <color name="caloriesColor">#E8F1FF</color>
+    <color name="speedColor">#E6F4FD</color>
 </resources>

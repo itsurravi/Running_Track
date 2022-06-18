@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/lightBaseFill"
+    app:cardBackgroundColor="@color/colorPrimary"
     app:cardCornerRadius="@dimen/_15sdp">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp"
+            android:textSize="14sp"
             tools:text="DATE" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:gravity="center"
             tools:text="DURATION"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvAvgSpeed"
@@ -38,7 +38,7 @@
             android:gravity="center"
             tools:text="AVG SPEED"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvDistance"
@@ -47,7 +47,7 @@
             android:gravity="center"
             tools:text="DISTANCE"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvCaloriesBurned"
@@ -56,7 +56,7 @@
             android:gravity="center"
             tools:text="CALORIES BURNED"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

@@ -15,73 +15,68 @@
 
         <ImageView
             android:id="@+id/ivRunImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll_date"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
-            android:text="DATE"
-            android:textColor="@color/lightTextSecondary"
-            app:layout_constraintEnd_toStartOf="@+id/tvTime"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivRunImage" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="TIME"
-            android:textColor="@color/lightTextSecondary"
-            app:layout_constraintEnd_toStartOf="@+id/tvDistance"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvDate"
-            app:layout_constraintTop_toBottomOf="@+id/ivRunImage" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvDistance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="DISTANCE"
-            android:textColor="@color/lightTextSecondary"
-            app:layout_constraintEnd_toStartOf="@+id/tvAvgSpeed"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvTime"
-            app:layout_constraintTop_toBottomOf="@+id/ivRunImage" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvAvgSpeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="AVGSPEED"
-            android:textColor="@color/lightTextSecondary"
-            app:layout_constraintEnd_toStartOf="@+id/tvCalories"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvDistance"
-            app:layout_constraintTop_toBottomOf="@+id/ivRunImage" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvCalories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="CALORIES"
-            android:textColor="@color/lightTextSecondary"
+            android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvAvgSpeed"
-            app:layout_constraintTop_toBottomOf="@+id/ivRunImage" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivRunImage">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_time_24"
+                android:tint="@color/timeColor" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:letterSpacing="0.05"
+                android:text="DATE"
+                android:textColor="@color/lightTextSecondary"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_date">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_distance_24"
+                android:tint="@color/distanceColor" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:letterSpacing="0.05"
+                android:text="DISTANCE"
+                android:textColor="@color/lightTextSecondary"
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

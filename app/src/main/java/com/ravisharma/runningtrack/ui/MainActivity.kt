@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         val name = sharedPreferences.getString(Constants.KEY_NAME, "")!!
         if (name.isNotBlank() || name.isNotEmpty()) {
-            binding.appTitle.text = "Let's go $name!"
+            binding.appTitle.text = "Hi, $name!"
         }
 
         navigateToTrackingFragmentIfNeeded(intent)

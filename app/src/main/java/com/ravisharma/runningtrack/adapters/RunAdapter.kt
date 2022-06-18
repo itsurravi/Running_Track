@@ -51,15 +51,15 @@ class RunAdapter(val onItemClick : (position: Int) -> Unit) : RecyclerView.Adapt
             val dateFormat = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
             tvDate.text = dateFormat.format(calendar.time)
 
-            val avgSpeed = "${run.avgSpeedInKMH}km/h"
-            tvAvgSpeed.text = avgSpeed
-
             val distanceInKm = "${run.distanceInMeters / 1000f}km"
             tvDistance.text = distanceInKm
-            tvTime.text = TrackingUtility.getFormattedStopWatchTime(run.timeInMillis)
 
-            val caloriesBurned = "${run.caloriesBurned}kcal"
-            tvCalories.text = caloriesBurned
+//            val avgSpeed = "${run.avgSpeedInKMH}km/h"
+//            tvAvgSpeed.text = avgSpeed
+//            tvTime.text = TrackingUtility.getFormattedStopWatchTime(run.timeInMillis)
+
+//            val caloriesBurned = "${run.caloriesBurned}kcal"
+//            tvCalories.text = caloriesBurned
 
             materialCardView.setOnClickListener {
                 onItemClick(run.id!!)

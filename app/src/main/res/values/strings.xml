@@ -9,4 +9,18 @@
     </string-array>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDv7rDEy26kC5fmMU-7hlgS2R12pZv03Zc</string>
     <string name="sort_list">Sort List</string>
+    <string name="welcome_message">Welcome!\nPlease enter your name and weight.</string>
+    <string name="name_hint">My Name</string>
+    <string name="weight_hint">Weight</string>
+    <string name="kg">kg</string>
+    <string name="apply_changes">Apply Changes</string>
+    <string name="float_content_desc">Next</string>
+    <string name="txt_total_duration">Total Duration</string>
+    <string name="default_time">00:00:00</string>
+    <string name="default_calories">0kcal</string>
+    <string name="txt_calories_burned">Calories Burned</string>
+    <string name="default_distance">0km</string>
+    <string name="txt_total_distance">Total Distance</string>
+    <string name="default_speed">0km/h</string>
+    <string name="txt_average_speed">Average Speed</string>
 </resources>
