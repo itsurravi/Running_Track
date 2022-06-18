@@ -51,9 +51,10 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
 
-                R.id.settingsFragment, R.id.runFragment, R.id.statisticsFragment ->
+                R.id.settingsFragment, R.id.runFragment, R.id.statisticsFragment -> {
+                    setToolbarTitle("Hi, $name!")
                     binding.bottomNavigationView.visibility = View.VISIBLE
-
+                }
                 else -> binding.bottomNavigationView.visibility = View.GONE
             }
         }

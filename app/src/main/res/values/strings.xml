@@ -15,12 +15,17 @@
     <string name="kg">kg</string>
     <string name="apply_changes">Apply Changes</string>
     <string name="float_content_desc">Next</string>
-    <string name="txt_total_duration">Total Duration</string>
     <string name="default_time">00:00:00</string>
     <string name="default_calories">0kcal</string>
-    <string name="txt_calories_burned">Calories Burned</string>
     <string name="default_distance">0km</string>
-    <string name="txt_total_distance">Total Distance</string>
     <string name="default_speed">0km/h</string>
+    <string name="txt_duration">Duration</string>
+    <string name="txt_distance">Distance</string>
+    <string name="txt_speed">Speed</string>
+    <string name="txt_total_duration">Total Duration</string>
+    <string name="txt_calories_burned">Calories Burned</string>
+    <string name="txt_total_distance">Total Distance</string>
     <string name="txt_average_speed">Average Speed</string>
+    <string name="setting_info">You can update your name and weight here</string>
+    <string name="run_image">Run Image</string>
 </resources>
