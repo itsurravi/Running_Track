@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#7A8B94</color>
-    <color name="colorPrimaryDark">#7A8B94</color>
-    <color name="colorAccent">#3C4852</color>
+    <color name="colorPrimary">#323753</color>
+    <color name="colorPrimaryDark">#323753</color>
+    <color name="colorAccent">#7cd1e7</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBackground">@color/colorWhite</color>
@@ -11,9 +11,11 @@
     <color name="errorColor">#EB5757</color>
 
     <color name="divider">#E9EEF2</color>
-    <color name="lightTextPrimary">#3C4852</color>
-    <color name="lightTextSecondary">#7A8B94</color>
-    <color name="lightBaseFill">#3C4852</color>
-    <color name="statsChartBackground">#f7efed</color>
+    <color name="lightTextPrimary">#323753</color>
+    <color name="lightTextSecondary">#CCC9CF</color>
+    <color name="lightBaseFill">#7cd1e7</color>
+    <color name="statsChartBackground">#ECF3FC</color>
+
+    <color name="colorGrey">#D7D7D7</color>
 
 </resources>
