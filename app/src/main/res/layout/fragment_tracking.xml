@@ -30,7 +30,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnToggleRun"
-            android:layout_width="@dimen/_100sdp"
+            android:layout_width="@dimen/_110sdp"
             android:layout_height="wrap_content"
             android:text="Start"
             android:textColor="@color/colorPrimary"
@@ -43,7 +43,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFinishRun"
-            android:layout_width="@dimen/_100sdp"
+            android:layout_width="@dimen/_110sdp"
             android:layout_height="wrap_content"
             android:text="Finish Run"
             android:visibility="gone"

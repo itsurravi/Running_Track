@@ -1,9 +1,13 @@
 package com.ravisharma.runningtrack.ui.fragments
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.Menu
+import android.view.View
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -84,10 +88,25 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
 
         binding.mapView.getMapAsync {
             map = it
+            showCurrentLocation()
             addAllPolylines()
         }
 
         subscribeToObservers()
+    }
+
+    private fun showCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+        map?.isMyLocationEnabled = true
     }
 
     private fun subscribeToObservers() {
@@ -144,7 +163,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
             binding.btnToggleRun.text = "RESUME"
             binding.btnFinishRun.visibility = View.VISIBLE
         } else if (isTracking) {
-            binding.btnToggleRun.text = "STOP"
+            binding.btnToggleRun.text = "PAUSE"
             binding.fabCancelRun.visibility = View.VISIBLE
             binding.btnFinishRun.visibility = View.GONE
         }
