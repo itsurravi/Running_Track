@@ -52,7 +52,9 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
 
                 R.id.settingsFragment, R.id.runFragment, R.id.statisticsFragment -> {
-                    setToolbarTitle("Hi, $name!")
+                    if (name.isNotBlank() || name.isNotEmpty()) {
+                        setToolbarTitle("Hi, $name!")
+                    }
                     binding.bottomNavigationView.visibility = View.VISIBLE
                 }
                 else -> binding.bottomNavigationView.visibility = View.GONE

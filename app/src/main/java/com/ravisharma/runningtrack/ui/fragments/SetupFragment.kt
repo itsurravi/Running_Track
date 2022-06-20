@@ -75,7 +75,7 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
             .putBoolean(KEY_FIRST_TIME_TOGGLE, false)
             .apply()
 
-        val toolbarText = "Hi,, $name!"
+        val toolbarText = "Hi, $name!"
         (requireActivity() as MainActivity).setToolbarTitle(toolbarText)
         return true
     }

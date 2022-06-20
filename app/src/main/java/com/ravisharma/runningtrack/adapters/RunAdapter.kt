@@ -54,13 +54,6 @@ class RunAdapter(val onItemClick : (position: Int) -> Unit) : RecyclerView.Adapt
             val distanceInKm = "${run.distanceInMeters / 1000f}km"
             tvDistance.text = distanceInKm
 
-//            val avgSpeed = "${run.avgSpeedInKMH}km/h"
-//            tvAvgSpeed.text = avgSpeed
-//            tvTime.text = TrackingUtility.getFormattedStopWatchTime(run.timeInMillis)
-
-//            val caloriesBurned = "${run.caloriesBurned}kcal"
-//            tvCalories.text = caloriesBurned
-
             materialCardView.setOnClickListener {
                 onItemClick(run.id!!)
             }

@@ -169,12 +169,12 @@ class TrackingService : LifecycleService() {
             val pauseIntent = Intent(this, TrackingService::class.java).apply {
                 action = ACTION_PAUSE_SERVICE
             }
-            PendingIntent.getService(this, 1, pauseIntent, FLAG_UPDATE_CURRENT)
+            PendingIntent.getService(this, 1, pauseIntent, FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         } else {
             val resumeIntent = Intent(this, TrackingService::class.java).apply {
                 action = ACTION_START_OR_RESUME_SERVICE
             }
-            PendingIntent.getService(this, 2, resumeIntent, FLAG_UPDATE_CURRENT)
+            PendingIntent.getService(this, 2, resumeIntent, FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }
 
         val notificationManager =
@@ -213,7 +213,7 @@ class TrackingService : LifecycleService() {
         }
     }
 
-    val locationCallback = object : LocationCallback() {
+    private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(result: LocationResult?) {
             super.onLocationResult(result)
             if (isTracking.value!!) {
