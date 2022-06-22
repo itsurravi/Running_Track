@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ravisharma.runningtrack.R
 import com.ravisharma.runningtrack.adapters.RunAdapter
 import com.ravisharma.runningtrack.databinding.FragmentRunBinding
+import com.ravisharma.runningtrack.other.Constants
 import com.ravisharma.runningtrack.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
 import com.ravisharma.runningtrack.other.SortType
 import com.ravisharma.runningtrack.other.TrackingUtility
@@ -81,10 +82,16 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
 
     private fun setupRecyclerView() = binding!!.rvRuns.apply {
         showProgressBar()
-        runAdapter = RunAdapter {
+        runAdapter = RunAdapter(onItemClick = {
             val bundle = bundleOf("detail" to it.toString())
             findNavController().navigate(R.id.action_runFragment_to_runDetailFragment, bundle)
-        }
+        }, onItemLongClick = { run->
+            DeleteTrackRunDialog().apply {
+                setYesListener {
+                    viewModel.deleteRun(run)
+                }
+            }.show(parentFragmentManager, Constants.DELETE_TRACKING_DIALOG_TAG)
+        })
         adapter = runAdapter
         layoutManager = GridLayoutManager(requireContext(), 2)
     }

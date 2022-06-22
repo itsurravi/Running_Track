@@ -189,47 +189,58 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     }
 
     private fun zoomToSeeWholeTrack() {
-        val bounds = LatLngBounds.builder()
-        for (polyline in pathPoints) {
-            for (pos in polyline) {
-                bounds.include(pos)
+        if (pathPoints.isNotEmpty() && pathPoints.last().isNotEmpty()) {
+            val bounds = LatLngBounds.builder()
+            for (polyline in pathPoints) {
+                for (pos in polyline) {
+                    bounds.include(pos)
+                }
             }
-        }
 
-        map?.moveCamera(
-            CameraUpdateFactory.newLatLngBounds(
-                bounds.build(),
-                binding.mapView.width,
-                binding.mapView.height,
-                (binding.mapView.height * 0.05f).toInt()
+            map?.moveCamera(
+                CameraUpdateFactory.newLatLngBounds(
+                    bounds.build(),
+                    binding.mapView.width,
+                    binding.mapView.height,
+                    (binding.mapView.height * 0.12f).toInt()
+                )
             )
-        )
+        }
     }
 
     private fun endRunAndSaveToDb() {
-        map?.snapshot { bmp ->
-            var distanceInMeters = 0
-            for (polyLine in pathPoints) {
-                distanceInMeters += TrackingUtility.calculatePolylineLength(polyLine).toInt()
-            }
-            val avgSpeed =
-                round((distanceInMeters / 1000f) / (currentTimeMillis / 1000f / 60 / 60) * 10) / 10f
-            val dateTimeStamp = Calendar.getInstance().timeInMillis
-            val caloriesBurned = ((distanceInMeters / 1000f) * weight).toInt()
-            Log.e("Values", "$weight")
+        if (pathPoints.isNotEmpty() && pathPoints.last().isNotEmpty()) {
+            map?.snapshot { bmp ->
+                var distanceInMeters = 0
+                for (polyLine in pathPoints) {
+                    distanceInMeters += TrackingUtility.calculatePolylineLength(polyLine).toInt()
+                }
+                val avgSpeed =
+                    round((distanceInMeters / 1000f) / (currentTimeMillis / 1000f / 60 / 60) * 10) / 10f
+                val dateTimeStamp = Calendar.getInstance().timeInMillis
+                val caloriesBurned = ((distanceInMeters / 1000f) * weight).toInt()
+                Log.e("Values", "$weight")
 
-            val run = Run(
-                bmp,
-                dateTimeStamp,
-                avgSpeed,
-                distanceInMeters,
-                currentTimeMillis,
-                caloriesBurned
-            )
-            viewModel.insertRun(run)
+                val run = Run(
+                    bmp,
+                    dateTimeStamp,
+                    avgSpeed,
+                    distanceInMeters,
+                    currentTimeMillis,
+                    caloriesBurned
+                )
+                viewModel.insertRun(run)
+                Snackbar.make(
+                    requireActivity().findViewById(R.id.rootView),
+                    "Run Saved Successfully",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                stopRun()
+            }
+        } else {
             Snackbar.make(
                 requireActivity().findViewById(R.id.rootView),
-                "Run Saved Successfully",
+                "Path is not recorded",
                 Snackbar.LENGTH_LONG
             ).show()
             stopRun()

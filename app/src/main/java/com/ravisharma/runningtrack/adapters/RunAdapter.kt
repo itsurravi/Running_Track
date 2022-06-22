@@ -14,7 +14,10 @@ import com.ravisharma.runningtrack.other.TrackingUtility
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RunAdapter(val onItemClick : (position: Int) -> Unit) : RecyclerView.Adapter<RunAdapter.RunViewHolder>() {
+class RunAdapter(
+    val onItemClick: (position: Int) -> Unit,
+    val onItemLongClick: (run: Run) -> Unit
+) : RecyclerView.Adapter<RunAdapter.RunViewHolder>() {
 
     inner class RunViewHolder(val binding: ItemRunBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -33,7 +36,13 @@ class RunAdapter(val onItemClick : (position: Int) -> Unit) : RecyclerView.Adapt
     fun submitList(list: List<Run>) = differ.submitList(list)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RunViewHolder {
-        return RunViewHolder(ItemRunBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return RunViewHolder(
+            ItemRunBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -56,6 +65,10 @@ class RunAdapter(val onItemClick : (position: Int) -> Unit) : RecyclerView.Adapt
 
             materialCardView.setOnClickListener {
                 onItemClick(run.id!!)
+            }
+            materialCardView.setOnLongClickListener {
+                onItemLongClick(run)
+                true
             }
         }
     }

@@ -81,4 +81,8 @@ class MainViewModel @Inject constructor(
     fun getSingleRun(id: Int): LiveData<Run> {
         return mainRepository.getSingleRun(id)
     }
+
+    fun deleteRun(run: Run) = viewModelScope.launch {
+        mainRepository.deleteRun(run)
+    }
 }

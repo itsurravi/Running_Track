@@ -1,9 +1,13 @@
 package com.ravisharma.runningtrack.ui
 
+import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -13,7 +17,10 @@ import com.ravisharma.runningtrack.R
 import com.ravisharma.runningtrack.databinding.ActivityMainBinding
 import com.ravisharma.runningtrack.other.Constants
 import com.ravisharma.runningtrack.other.Constants.ACTION_SHOW_TRACKING_FRAGMENT
+import com.ravisharma.runningtrack.other.TrackingUtility
 import dagger.hilt.android.AndroidEntryPoint
+import pub.devrel.easypermissions.AppSettingsDialog
+import pub.devrel.easypermissions.EasyPermissions
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        requestPermissions()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
@@ -91,4 +100,26 @@ class MainActivity : AppCompatActivity() {
     fun setToolbarTitle(title: String) {
         binding.appTitle.text = title
     }
+//
+//    @RequiresApi(Build.VERSION_CODES.N)
+//    val locationPermissionRequest = registerForActivityResult(
+//        ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+//        when {
+//            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
+//                // Precise location access granted.
+//            }
+//            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+//                // Only approximate location access granted.
+//            }
+//            else -> {
+//                // No location access granted.
+//            }
+//        }
+//    }
+//
+//    private fun requestPermissions() {
+//        locationPermissionRequest.launch(arrayOf(
+//            Manifest.permission.ACCESS_FINE_LOCATION,
+//            Manifest.permission.ACCESS_COARSE_LOCATION))
+//    }
 }
