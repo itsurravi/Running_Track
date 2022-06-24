@@ -220,7 +220,7 @@ class TrackingService : LifecycleService() {
                 result?.locations?.let { locations ->
                     for (location in locations) {
                         addPathPoint(location)
-                        Timber.d("NEW LOCATION ${location.latitude}, ${location.longitude}")
+                        Timber.d("NEW_LOCATION ${location.latitude}, ${location.longitude}")
                     }
                 }
             }
@@ -232,6 +232,7 @@ class TrackingService : LifecycleService() {
             val pos = LatLng(location.latitude, location.longitude)
             pathPoints.value?.apply {
                 last().add(pos)
+                Timber.d("PATH_POINT $pos")
                 pathPoints.postValue(this)
             }
         }

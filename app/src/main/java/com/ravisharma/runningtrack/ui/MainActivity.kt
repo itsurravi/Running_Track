@@ -44,10 +44,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        val name = sharedPreferences.getString(Constants.KEY_NAME, "")!!
-        if (name.isNotBlank() || name.isNotEmpty()) {
-            binding.appTitle.text = "Hi, $name!"
-        }
+        setUserNameOnToolbar()
 
         navigateToTrackingFragmentIfNeeded(intent)
 
@@ -61,13 +58,18 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
 
                 R.id.settingsFragment, R.id.runFragment, R.id.statisticsFragment -> {
-                    if (name.isNotBlank() || name.isNotEmpty()) {
-                        setToolbarTitle("Hi, $name!")
-                    }
+                    setUserNameOnToolbar()
                     binding.bottomNavigationView.visibility = View.VISIBLE
                 }
                 else -> binding.bottomNavigationView.visibility = View.GONE
             }
+        }
+    }
+
+    private fun setUserNameOnToolbar() {
+        val name = sharedPreferences.getString(Constants.KEY_NAME, "")!!
+        if (name.isNotBlank() || name.isNotEmpty()) {
+            setToolbarTitle("Hi, $name!")
         }
     }
 
@@ -100,26 +102,4 @@ class MainActivity : AppCompatActivity() {
     fun setToolbarTitle(title: String) {
         binding.appTitle.text = title
     }
-//
-//    @RequiresApi(Build.VERSION_CODES.N)
-//    val locationPermissionRequest = registerForActivityResult(
-//        ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-//        when {
-//            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-//                // Precise location access granted.
-//            }
-//            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-//                // Only approximate location access granted.
-//            }
-//            else -> {
-//                // No location access granted.
-//            }
-//        }
-//    }
-//
-//    private fun requestPermissions() {
-//        locationPermissionRequest.launch(arrayOf(
-//            Manifest.permission.ACCESS_FINE_LOCATION,
-//            Manifest.permission.ACCESS_COARSE_LOCATION))
-//    }
 }
