@@ -59,7 +59,12 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.settingsFragment, R.id.runFragment, R.id.statisticsFragment -> {
                     setUserNameOnToolbar()
+                    showHideAppBarLayout(true)
                     binding.bottomNavigationView.visibility = View.VISIBLE
+                }
+                R.id.setupFragment -> {
+                    showHideAppBarLayout(false)
+                    binding.bottomNavigationView.visibility = View.GONE
                 }
                 else -> binding.bottomNavigationView.visibility = View.GONE
             }

@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
+    <include
+        android:id="@+id/no_stats_found"
+        layout="@layout/no_stats_found"
+        android:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/stats_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="barCardView, cardAverageSpeedInfo, cardTotalDistanceInfo, cardTotalCaloriesInfo, cardTotalTimeInfo" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTotalTimeInfo"
         android:layout_width="0dp"
@@ -43,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_time"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvTotalTimeInfo" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -51,7 +62,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_total_duration"
-                    android:textColor="@color/lightTextSecondary" />
+                    android:textColor="@color/lightTextSecondary"
+                    android:textSize="12sp"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -94,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_calories"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvTotalCaloriesInfo" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -146,7 +158,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_distance"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvTotalDistanceInfo"
@@ -197,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_speed"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvAverageSpeedInfo" />
 
 
@@ -227,7 +239,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
+        android:id="@+id/barCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_16sdp"

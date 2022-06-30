@@ -29,7 +29,7 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
 
     private val viewModel: MainViewModel by viewModels()
 
-    private var binding: FragmentRunBinding? = null
+    private lateinit var binding: FragmentRunBinding
 
     private lateinit var runAdapter: RunAdapter
 
@@ -40,14 +40,14 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         setupRecyclerView()
 
         when (viewModel.sortType) {
-            SortType.DATE -> binding!!.spFilter.setSelection(0)
-            SortType.RUNNING_TIME -> binding!!.spFilter.setSelection(1)
-            SortType.DISTANCE -> binding!!.spFilter.setSelection(2)
-            SortType.AVG_SPEED -> binding!!.spFilter.setSelection(3)
-            SortType.CALORIES_BURNED -> binding!!.spFilter.setSelection(4)
+            SortType.DATE -> binding.spFilter.setSelection(0)
+            SortType.RUNNING_TIME -> binding.spFilter.setSelection(1)
+            SortType.DISTANCE -> binding.spFilter.setSelection(2)
+            SortType.AVG_SPEED -> binding.spFilter.setSelection(3)
+            SortType.CALORIES_BURNED -> binding.spFilter.setSelection(4)
         }
 
-        binding!!.spFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
 
             override fun onItemSelected(
@@ -70,17 +70,22 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         viewModel.runs.observe(viewLifecycleOwner, Observer {
             runAdapter.submitList(it)
             hideProgressBar()
-            binding!!.rvRuns.post {
-                binding!!.rvRuns.smoothScrollToPosition(0)
+            if(it.isNotEmpty()) {
+                hideNoDataFound()
+                binding.rvRuns.post {
+                    binding.rvRuns.smoothScrollToPosition(0)
+                }
+            } else {
+                showNoDataFound()
             }
         })
 
-        binding!!.fab.setOnClickListener {
+        binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
         }
     }
 
-    private fun setupRecyclerView() = binding!!.rvRuns.apply {
+    private fun setupRecyclerView() = binding.rvRuns.apply {
         showProgressBar()
         runAdapter = RunAdapter(onItemClick = {
             val bundle = bundleOf("detail" to it.toString())
@@ -96,8 +101,18 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
+    private fun showNoDataFound() {
+        binding.noDataFound.noDataFoundRoot.visibility = View.VISIBLE
+        binding.group.visibility = View.GONE
+    }
+
+    private fun hideNoDataFound() {
+        binding.noDataFound.noDataFoundRoot.visibility = View.GONE
+        binding.group.visibility = View.VISIBLE
+    }
+
     private fun showProgressBar() {
-        binding!!.progressBar.let {
+        binding.progressBar.let {
             if (it.visibility == View.GONE) {
                 it.visibility = View.VISIBLE
             }
@@ -105,7 +120,7 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
     }
 
     private fun hideProgressBar() {
-        binding!!.progressBar.let { bar ->
+        binding.progressBar.let { bar ->
             if (bar.visibility == View.VISIBLE) {
                 bar.visibility = View.GONE
             }

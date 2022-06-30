@@ -1,13 +1,10 @@
 package com.ravisharma.runningtrack.ui.fragments
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -15,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.snackbar.Snackbar
@@ -36,10 +34,10 @@ import com.ravisharma.runningtrack.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import java.util.*
 import javax.inject.Inject
 import kotlin.math.round
+
 
 @AndroidEntryPoint
 class TrackingFragment : Fragment(R.layout.fragment_tracking) {
@@ -100,6 +98,15 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     }
 
     private fun showCurrentLocation() {
+        val defaultLatLng = LatLng(20.5937, 78.9629)
+        val point = CameraUpdateFactory.newLatLng(defaultLatLng)
+        map?.moveCamera(point)
+        map?.animateCamera(
+            CameraUpdateFactory.newLatLngZoom(
+                defaultLatLng,
+                4.2f
+            )
+        )
 //        if (ActivityCompat.checkSelfPermission(
 //                requireActivity(),
 //                Manifest.permission.ACCESS_FINE_LOCATION

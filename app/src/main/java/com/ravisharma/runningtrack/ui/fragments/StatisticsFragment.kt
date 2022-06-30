@@ -94,17 +94,34 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
         viewModel.runsSortedByDate.observe(viewLifecycleOwner, Observer {
             it?.let {
-                val allAvgSpeeds =
-                    it.indices.map { i -> BarEntry(i.toFloat(), it[i].avgSpeedInKMH) }
-                val barDataSet = BarDataSet(allAvgSpeeds, "Avg Speed Over Time").apply {
-                    valueTextColor = Color.WHITE
-                    color = ContextCompat.getColor(requireContext(), R.color.colorAccent)
-                }
+                if(it.isNotEmpty()) {
+                    hideNoDataFound()
+                    val allAvgSpeeds =
+                        it.indices.map { i -> BarEntry(i.toFloat(), it[i].avgSpeedInKMH) }
+                    val barDataSet = BarDataSet(allAvgSpeeds, "Avg Speed Over Time").apply {
+                        valueTextColor = Color.WHITE
+                        color = ContextCompat.getColor(requireContext(), R.color.colorAccent)
+                    }
 
-                binding.barChart.data = BarData(barDataSet)
-                binding.barChart.marker = CustomMarkerView(it, requireContext(), R.layout.marker_view)
-                binding.barChart.invalidate()
+                    binding.barChart.data = BarData(barDataSet)
+                    binding.barChart.marker =
+                        CustomMarkerView(it, requireContext(), R.layout.marker_view)
+                    binding.barChart.invalidate()
+                }
+                else {
+                    showNoDataFound()
+                }
             }
         })
+    }
+
+    private fun showNoDataFound() {
+        binding.noStatsFound?.noStatsFoundRoot?.visibility = View.VISIBLE
+        binding.statsGroup?.visibility = View.GONE
+    }
+
+    private fun hideNoDataFound() {
+        binding.noStatsFound?.noStatsFoundRoot?.visibility = View.GONE
+        binding.statsGroup?.visibility = View.VISIBLE
     }
 }

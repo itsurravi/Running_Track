@@ -28,4 +28,6 @@
     <string name="txt_average_speed">Average Speed</string>
     <string name="setting_info">You can update your name and weight here</string>
     <string name="run_image">Run Image</string>
+    <string name="no_run_record_found">No Run Record Found</string>
+    <string name="no_stats_found">No Stats Found</string>
 </resources>

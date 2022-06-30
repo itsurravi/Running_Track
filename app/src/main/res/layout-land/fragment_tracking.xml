@@ -19,9 +19,9 @@
             android:id="@+id/tvTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00:00:00"
+            android:text="00:00:00:00"
             android:textColor="@color/lightTextPrimary"
-            android:textSize="50sp"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,8 +47,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Finish run"
-            android:visibility="gone"
             android:textColor="@color/colorPrimary"
+            android:visibility="gone"
             app:backgroundTint="@color/lightBaseFill"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,8 +71,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnToggleRun"
             app:layout_constraintVertical_bias="0.5"
-            app:rippleColor="@android:color/white"
-            app:tint="@android:color/white" />
+            app:rippleColor="@color/colorPrimary"
+            app:tint="@color/colorPrimary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

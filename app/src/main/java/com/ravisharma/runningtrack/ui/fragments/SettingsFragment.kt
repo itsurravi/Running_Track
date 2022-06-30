@@ -51,7 +51,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         }
 
         sharedPreferences.edit().apply {
-            putString(KEY_NAME, name)
+            putString(KEY_NAME, name.trim())
             putFloat(KEY_WEIGHT, weight.toFloat())
             apply()
         }

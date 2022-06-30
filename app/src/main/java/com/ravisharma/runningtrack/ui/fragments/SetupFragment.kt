@@ -70,7 +70,7 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
         }
 
         sharedPref.edit()
-            .putString(KEY_NAME, name)
+            .putString(KEY_NAME, name.trim())
             .putFloat(KEY_WEIGHT, weight.toFloat())
             .putBoolean(KEY_FIRST_TIME_TOGGLE, false)
             .apply()
