@@ -23,7 +23,6 @@ class CustomMarkerView(
     }
 
     override fun refreshContent(e: Entry?, highlight: Highlight?) {
-        super.refreshContent(e, highlight)
         if (e == null) {
             return
         }
@@ -45,5 +44,7 @@ class CustomMarkerView(
 
         val caloriedBurned = "${run.caloriesBurned}kcal"
         tvCaloriesBurned.text = caloriedBurned
+
+        super.refreshContent(e, highlight)
     }
 }
