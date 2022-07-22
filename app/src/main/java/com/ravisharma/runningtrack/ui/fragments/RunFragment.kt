@@ -1,6 +1,7 @@
 package com.ravisharma.runningtrack.ui.fragments
 
 import android.Manifest
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -11,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ravisharma.runningtrack.R
 import com.ravisharma.runningtrack.adapters.RunAdapter
 import com.ravisharma.runningtrack.databinding.FragmentRunBinding
@@ -70,7 +70,7 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         viewModel.runs.observe(viewLifecycleOwner, Observer {
             runAdapter.submitList(it)
             hideProgressBar()
-            if(it.isNotEmpty()) {
+            if (it.isNotEmpty()) {
                 hideNoDataFound()
                 binding.rvRuns.post {
                     binding.rvRuns.smoothScrollToPosition(0)
@@ -90,7 +90,7 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         runAdapter = RunAdapter(onItemClick = {
             val bundle = bundleOf("detail" to it.toString())
             findNavController().navigate(R.id.action_runFragment_to_runDetailFragment, bundle)
-        }, onItemLongClick = { run->
+        }, onItemLongClick = { run ->
             DeleteTrackRunDialog().apply {
                 setYesListener {
                     viewModel.deleteRun(run)
@@ -98,7 +98,9 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
             }.show(parentFragmentManager, Constants.DELETE_TRACKING_DIALOG_TAG)
         })
         adapter = runAdapter
-        layoutManager = GridLayoutManager(requireContext(), 2)
+        val span =
+            if (activity?.resources?.configuration?.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 3
+        layoutManager = GridLayoutManager(requireContext(), span)
     }
 
     private fun showNoDataFound() {

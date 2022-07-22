@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_time"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvTotalTimeInfo" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_calories"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvTotalCaloriesInfo" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -167,7 +167,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_distance"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvTotalDistanceInfo"
@@ -221,7 +221,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_speed"
                     android:textColor="@color/lightTextPrimary"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvAverageSpeedInfo" />
 
 
